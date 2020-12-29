@@ -1,31 +1,31 @@
-package com.app.backend.dao;
+package com.app.dao;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "balance")
+@Document(collection = "Balance")
 public class User {
     @Id
     private String id;
     private String name;
-    private double balance;
+    private Double balance;
 
     @Indexed(unique = true)
-    private String upi_id;
+    private String upi;
     @Indexed(unique = true)
     private String phone;
 
     public User(@JsonProperty("id") String id,
                 @JsonProperty("name") String name,
-                @JsonProperty("balance") double balance,
-                @JsonProperty("upi_id") String upi_id,
+                @JsonProperty("balance") Double balance,
+                @JsonProperty("upi") String upi,
                 @JsonProperty("phone") String phone) {
         this.id = id;
         this.name = name;
         this.balance = balance;
-        this.upi_id = upi_id;
+        this.upi = upi;
         this.phone = phone;
     }
 
@@ -35,11 +35,11 @@ public class User {
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
-    public double getBalance() { return balance; }
-    public void setBalance(double balance) { this.balance = balance; }
+    public Double getBalance() { return balance; }
+    public void setBalance(Double balance) { this.balance = balance; }
 
-    public String getUpi_id() { return upi_id; }
-    public void setUpi_id(String upi_id) { this.upi_id = upi_id; }
+    public String getUpi() { return upi; }
+    public void setUpi(String upi) { this.upi = upi; }
 
     public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }

@@ -1,10 +1,11 @@
-package com.app.backend.repository;
+package com.app.repository;
 
-import com.app.backend.dao.User;
+import com.app.dao.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserRepository extends MongoRepository<User, String> {
-    public User findByUpi_id(String upi_id);
-
     public User findByName(String name);
+    public User getUserByUpi(String upi);
 }

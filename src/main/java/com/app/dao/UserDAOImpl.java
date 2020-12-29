@@ -1,6 +1,6 @@
-package com.app.backend.dao;
+package com.app.dao;
 
-import com.app.backend.repository.UserRepository;
+import com.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -8,9 +8,9 @@ import java.util.List;
 
 @Repository
 public class UserDAOImpl implements UserDAO {
-    @Autowired
-    private final UserRepository repository;
 
+    private final UserRepository repository;
+    @Autowired
     public UserDAOImpl(UserRepository repository) {
         this.repository = repository;
     }
@@ -23,8 +23,8 @@ public class UserDAOImpl implements UserDAO {
         return repository.findByName(name);
     }
     @Override
-    public User getUserByUpi_id(String upi_id){
-        return repository.findByUpi_id(upi_id);
+    public User getUserByUpi(String upi){
+        return repository.getUserByUpi(upi);
     }
     @Override
     public User addUser(User user){
