@@ -3,6 +3,7 @@ package com.app.controller;
 import com.app.dao.User;
 import com.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -33,4 +34,9 @@ public class Controller {
         return userService.getUserByUpi("434343@upi");
     }
 
+    User u = new User("04","sam",100.0,"97494@upi","90443434");
+    @PostMapping("/upload")
+    public User uploadUser(){
+        return userService.addUser(u);
+    }
 }
